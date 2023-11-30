@@ -1,0 +1,30 @@
+The Game
+- Lights Out is a logic/puzzle game, played on a gird of individual lights, which can either be lit or unlit.
+- The puzzle is won when when all of the lights are turned off.
+- You can click on a cell to toggle that light — but it also toggles the light above it, to the left of it, to the right of it, and below it.
+- Cells on an edge or in the corner won’t flip as many lights, since they are missing some neighbors.
+
+Plan
+- Before reading further, take a moment to think about how you would design this, component-wise.
+- We’ll give you a component design further down, but thinking about the requirements and what components/state/props would be needed will help you learn the skills to design applications out of components.
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+PAM: ok.... 
+    - 2d grid 
+        - can be at least 1x2 
+        -  ⏹️⏹️ -> 🟦🟦 
+        - theirs states are lit of unlit, binary true or false.
+    - each grid cell toggle effects the cells above, right, below, and left around it. ⬆️➡️⬇️⬅️
+        🟦 ⏹️ 🟦      🟦 ⏹️ 🟦      🟦 🟦 🟦                                               
+                                                                                                            
+        ⏹️ ⏹️ ⏹️  ->  ⏹️ 🟥 ⏹️  ->  🟦 🟦 🟦                                                    
+                                                                                                            
+        🟦 ⏹️ 🟦      🟦 ⏹️ 🟦      🟦 🟦 🟦                                               
+    well first have an app components to set everything up.
+    each cell is a child of a board component that will build key name and feed useState functions to each of them.
+    each cell will be its own component. keeping a useState of either true or false and a setState function probably called toggle. in the toggle hook well flip the value of lit or unlit
+    should each cell keep track of what cell is next to it? maybe, if it also affects the lights around it, it should probably keep track of them to send to each an update. 
+    
+
+    
