@@ -22,17 +22,23 @@ PAM: ok....
                                                                                                             
         🟦 ⏹️ 🟦      🟦 ⏹️ 🟦      🟦 🟦 🟦          
 
-    Components:
+    Components Hierarchy Plan:
 
     - App.js:
-        - to set everything up, and render the next components.
-    
+        - Serves as the top-level component to set everything up and render the next components.
+        - Manages the overall state of the game.
+
     - Board.js:
-        - child component of App.js
-        - Represents the lights out game board
-        - will build, key-name and feed useState hook callback function to toggle light to the next components as props
+        - A child component of `App.js`.
+        - Represents the Lights Out game board.
+        - Builds the grid, defines key-names, and feeds a `useState` hook callback function to toggle the light to the next components as props.
+        - Renders multiple `Cell` components.
 
     - Cell.js:
-        - child components of Board.js
-        - keeping a useState of either true or false and a setState function probably called toggle. in the toggle hook well flip the value of lit or unlit
-        - should each cell keep track of what cell is next to it? maybe, if it also affects the lights around it, it should probably keep track of them to send to each an update up the hierarchy with an event handler. 
+        - A child component of `Board.js`.
+        - Represents an individual light.
+        - Receives its state (lit/unlit) and click event as props.
+        - Maintains a `useState` hook with a boolean value (lit or unlit) and a `setState` function, likely named `toggle`.
+        - In the `toggle` hook, it flips the value between lit and unlit.
+        - Each cell may keep track of its neighboring cells.
+        - Sends click events updates up the hierarchy to the `App` component to update the game state with the click event handler.
